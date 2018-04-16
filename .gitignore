@@ -1,8 +1,3 @@
-# processed output
-dist/**
-src/maps/**
-src/style/**
-
 # os crud
 .DS_Store
 .DS_Store?
