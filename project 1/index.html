@@ -49,7 +49,7 @@
           <span class="action__charge" :class="['action__charge--' + players[0].specialCooldown]"></span>
         </button>
         <button @click="heal(0)" type="button" class="action action--positive" :disabled="isWaiting">Heal</button>
-        <button @click="endGame" type="button" class="action action--neutral" :disabled="isWaiting">Flee</button>
+        <button @click="flee(0)" type="button" class="action action--neutral" :disabled="isWaiting">Flee</button>
       </template>
 
       <template v-if="!isPlaying">

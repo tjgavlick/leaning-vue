@@ -10,8 +10,11 @@ const _actions = {
   heal: {
     verb: 'healed'
   },
-  run: {
-    verb: 'ran'
+  flee: {
+    verb: 'ran from the battle'
+  },
+  trip: {
+    verb: 'tried to run, their injuries held them back'
   },
   die: {
     verb: 'died'
@@ -62,7 +65,6 @@ var vue = new Vue({
     },
 
     endGame: function (result) {
-      this.resetGame();
       this.isPlaying = false;
     },
 
@@ -188,6 +190,18 @@ var vue = new Vue({
       if (source === 0) {
         this.respondToPlayerAction();
       }
+    },
+
+    flee: function (source) {
+      var sourcePlayer = this.players[source];
+      // 33% base chance, increasing with hp
+      if (Math.random() < (sourcePlayer.hp / 100 + 0.3)) {
+        this.logAction(_actions.flee, source);
+        this.endGame();
+      } else {
+        this.logAction(_actions.trip, source);
+        this.respondToPlayerAction();
+      }
     }
   },
 
@@ -199,7 +213,7 @@ var vue = new Vue({
           // detect a loss
           if (player.hp <= 0) {
             this.logAction(_actions.die, i);
-            this.isPlaying = false;
+            this.endGame();
             break;
           }
           // make sure nobody goes above max hp
