@@ -41,7 +41,9 @@ var vue = new Vue({
       }
     ],
 
-    log: []
+    log: [],
+
+    isEditingName: false
   },
 
   methods: {

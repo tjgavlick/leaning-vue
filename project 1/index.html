@@ -22,7 +22,16 @@
 
     <div class="players" :class="isPlaying ? 'players--active' : 'players--inactive'">
       <div v-for="(player, i) in players" class="player" :class="['player--' + i, player.hp > 0 ? 'is-alive' : 'is-dead']" :key="player.name">
-        <h2 class="player__name">{{ player.name }}</h2>
+        <h2 v-if="!isEditingName" class="player__name" @click="isEditingName = true">{{ player.name }}</h2>
+        <input
+          v-if="isEditingName"
+          type="text"
+          class="player__edit-name"
+          autofocus="autofocus"
+          @blur="player.name = $event.target.value; isEditingName = false"
+          @keydown.enter="player.name = $event.target.value; isEditingName = false"
+          :value="player.name"
+          />
         <div v-if="isPlaying" class="player__health-bar">
           <div class="player__health-viz" :style="{ width: player.hp + '%' }" :class="{ 'is-alright': player.hp < 75, 'is-low': player.hp < 50, 'is-critical': player.hp < 20 }">
             <div class="player__health-figure">{{ player.hp }}</div>
