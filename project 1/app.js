@@ -109,7 +109,7 @@ var vue = new Vue({
       }
 
       this.log.push({
-        timestamp: now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds(),
+        timestamp: now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0') + ':' + now.getSeconds().toString().padStart(2, '0'),
         disposition: disposition,
         text: description.join(' ') + (action === _actions.die ? '!' : '.')
       });
