@@ -1,6 +1,8 @@
 new Vue({
   el: '#exercise',
+
   data: {
+    showParagraphs: true,
     array: ['Max', 'Anna', 'Chris', 'Manu'],
     myObject: {
       title: 'Lord of the Rings',
@@ -8,7 +10,7 @@ new Vue({
       books: '3'
     },
     testData: {
-      name: 'TESTOBJECT', 
+      name: 'TESTOBJECT',
       id: 10,
       data: [1.67, 1.33, 0.98, 2.21]
     }
