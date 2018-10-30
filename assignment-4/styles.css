@@ -13,3 +13,32 @@
   background-color: gray;
   width: 50px !important;
 }
+
+.blank-canvas {
+  width: 200px;
+  height: 100px;
+  background: #ccc;
+  position: relative;
+}
+
+.foo {
+  background: #103;
+}
+.bar {
+  background: #3c8;
+}
+.baz {
+  background: #48a;
+}
+
+.border {
+  border: 2px solid #f00;
+}
+
+.progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: #3b3;
+}
